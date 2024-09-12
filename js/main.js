@@ -1,3 +1,7 @@
+//функция запускающая загрузку данных из локалсторэдж
+loadFormData();
+
+
 //Маска для паспорта
 let seriesInp = document.getElementById('seria');
 let numberInp = document.getElementById('num');
@@ -9,6 +13,7 @@ function onlyNum(inp, maxlength) {
 	inpValue = inpValue.slice(0, maxlength);
 
 	inp.value = inpValue;
+	console.log(inpValue)
 }
 
 seriesInp.addEventListener('input', () => {
@@ -81,3 +86,69 @@ document.addEventListener('DOMContentLoaded', function() {
     input.addEventListener('input', handleInput);
     input.addEventListener('keydown', handleKeyDown);
 })
+
+
+//тут у нас проверка все ли поля заполнены
+document.getElementById('my-form').addEventListener('submit', function (event) {
+	event.preventDefault();
+	let inputs = document.querySelectorAll('.input');
+	let allFilled = true;
+
+	inputs.forEach(function(input) {
+			if (input.value === '') {
+					input.classList.add('invalid');
+					allFilled = false;
+			} else {
+					input.classList.remove('invalid');
+			}
+	});
+
+	if (allFilled) {
+			alert("Все поля заполнены! Отправляем форму.");
+	} else {
+			alert("Заполните все поля.");
+	}
+});
+
+document.getElementById('button-cancel').addEventListener('click', function () {
+	if (confirm("Вы действительно хотите удалить все данные?")) {
+
+		// Очистка всех полей формы
+			document.querySelectorAll('.input').forEach(function(input) {
+					input.value = '';
+					input.classList.remove('invalid');
+			});
+	}
+});
+
+document.querySelectorAll('.input').forEach(function(input) {
+	input.addEventListener('input', function () {
+			let formData = {};
+			document.querySelectorAll('.input').forEach(function(input) {
+					formData[input.id] = input.value;
+			});
+			localStorage.setItem('formData', JSON.stringify(formData));
+	});
+});
+
+
+// Функция для загрузки данных из локалсторэдж
+function loadFormData() {
+let formData = JSON.parse(localStorage.getItem('formData'));
+if (formData) {
+	Object.keys(formData).forEach(function(key) {
+			let input = document.getElementById(key);
+			if (input) {
+					input.value = formData[key];
+			}
+	});
+}
+}
+
+
+document.addEventListener('DOMContentLoaded', function () {
+	let today = new Date().toISOString().split('T')[0];
+	document.getElementById('date').setAttribute('min', today)
+})
+
+//спасибо что уделили мне время)

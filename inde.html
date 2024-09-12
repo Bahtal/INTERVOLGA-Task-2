@@ -11,7 +11,7 @@
 	<div class="wrapper">
 		<div class="container">
 			<div class="wrapper__inner">
-				<form>
+				<form id='my-form'>
 					<h1 class="title-1">Транспортные средства и водители</h1>
 		
 					<div class="form__inner">
@@ -39,8 +39,8 @@
 					<div class="form__inner">
 						<label class='label-inp' for="passport">Паспортные данные</label>
 						<div class="seria-num">
-							<input class='input' type="text" id='seria' placeholder='Серия' maxlength='4' required>
-							<input class='input' type="text" id='num' placeholder='Номер' maxlength='6' required>
+							<input class='input' type="text" id='seria' placeholder='Серия' maxlength='4' minlength='4' required>
+							<input class='input' type="text" id='num' placeholder='Номер' maxlength='6' minlength='6'>
 						</div>
 					</div>
 		
@@ -55,8 +55,8 @@
 					</div>
 		
 					<div class="buttons">
-						<input type="button" class="button send" value='Отправить' required>
-						<input type="button" class="button cancel" value='Отменить' required>
+						<input type="submit" class="button send" value='Отправить' required>
+						<input type="button" id='button-cancel' class="button cancel" value='Отменить' required>
 					</div>
 		
 				</form>
