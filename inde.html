@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./css/style.css">
+	<title>Document</title>
+</head>
+<body>
+
+	<div class="wrapper">
+		<div class="container">
+			<div class="wrapper__inner">
+				<form>
+					<h1 class="title-1">Транспортные средства и водители</h1>
+		
+					<div class="form__inner">
+						<label class='label-inp' for="number">Гос-номер:</label>
+						<input class='input' type="text" id='number' placeholder='Укажите гос-номер' required>
+					</div>
+		
+					<div class="form__inner">
+						<label class='label-inp' for="car">Транспортное средство</label>
+						<input class='input' type="text" id='car' placeholder='Транспортное средство' required>
+					</div>
+		
+					<div class="form__inner">
+						<label class='label-inp' for="date">Ориентировочная дата прибытия к покупателю</label>
+						<input class='input' type="date" id='date' value='Дата' required>
+					</div>
+		
+					<h2 class="title-2">Данные о водителе</h2>
+		
+					<div class="form__inner">
+						<label class='label-inp' for="name">ФИО</label>
+						<input class='input' type="text" id='name' placeholder='Укажите ФИО водителя' required>
+					</div>
+		
+					<div class="form__inner">
+						<label class='label-inp' for="passport">Паспортные данные</label>
+						<div class="seria-num">
+							<input class='input' type="text" id='seria' placeholder='Серия' maxlength='4' required>
+							<input class='input' type="text" id='num' placeholder='Номер' maxlength='6' required>
+						</div>
+					</div>
+		
+					<div class="form__inner">
+						<label class='label-inp' for="issued-by">Кем выдан</label>
+						<input class='input' type="text" id='issued-by' placeholder='Кем выдан' required>
+					</div>
+		
+					<div class="form__inner">
+						<label class='label-inp' for="when-issued">Когда выдан</label>
+						<input class='input' type="text" id='when-issued' placeholder='Когда выдан' required>
+					</div>
+		
+					<div class="buttons">
+						<input type="button" class="button send" value='Отправить' required>
+						<input type="button" class="button cancel" value='Отменить' required>
+					</div>
+		
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<script src='./js/main.js'></script>
+</body>
+</html>
